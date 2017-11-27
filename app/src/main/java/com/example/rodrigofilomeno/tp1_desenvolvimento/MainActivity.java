@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
             Mensagem("Contato Salvo com sucesso!");
 
+            clean();
 
-            //Listar();
         }
         catch (Exception e)
         {
@@ -64,11 +64,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Limpar(View v){
+        clean();
 
-        Nome.setText("");
-        Telefone.setText("");
-        Email.setText("");
-        Cidade.setText("");
     }
 
     private void Mensagem(String msg)
@@ -77,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+public void clean(){
+    Nome.setText("");
+    Telefone.setText("");
+    Email.setText("");
+    Cidade.setText("");
 
+}
 
 }
