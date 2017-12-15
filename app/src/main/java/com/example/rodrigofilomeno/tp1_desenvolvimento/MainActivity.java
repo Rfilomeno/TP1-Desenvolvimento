@@ -1,6 +1,7 @@
 package com.example.rodrigofilomeno.tp1_desenvolvimento;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -80,6 +81,11 @@ public void clean(){
     Email.setText("");
     Cidade.setText("");
 
+}
+
+public void verContatos(View v){
+    Intent intent = new Intent (MainActivity.this, Lista_ContatosActivity.class);
+    startActivity(intent);
 }
 
 }
