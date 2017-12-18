@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -28,14 +29,14 @@ public class Lista_ContatosActivity extends AppCompatActivity {
         contatos.add(contato1);
 
 //        Não consegui ler do arquivo...
-//        try {
-//            FileInputStream fis = new FileInputStream("contatos1.txt");
-//            ObjectInputStream ois = new ObjectInputStream(fis);
-//            contato = (Contato) ois.readObject();
-//            contatos.add(contato);
-//        }catch (Exception e){
-//
-//        }
+        try {
+            FileInputStream fis = new FileInputStream("contatos1.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            contatos =(ArrayList<Contato>) ois.readObject();
+
+        }catch (Exception e){
+            Toast.makeText(this, "erro:" + e.toString(), Toast.LENGTH_LONG);
+        }
 
         lvContatos = (ListView) findViewById(R.id.ListViewContatos);
         adapter = new CustomListViewAdapter(this, contatos);

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     TextView Telefone;
     TextView Email;
     TextView Cidade;
+    ArrayList<Contato> contatosArray = new ArrayList<>();
 
 
 
@@ -42,12 +44,12 @@ public class MainActivity extends AppCompatActivity {
     public void Salvar(View v){
 
         Contato contato = new Contato(Nome.getText().toString(),Telefone.getText().toString(),Email.getText().toString(),Cidade.getText().toString());
-
+        contatosArray.add(contato);
         try
         {
             FileOutputStream fos = openFileOutput("contatos1.txt", Context.MODE_PRIVATE);
             ObjectOutputStream out = new ObjectOutputStream(fos);
-            out.writeObject(contato);
+            out.writeObject(contatosArray);
 
 
             Mensagem("Contato Salvo com sucesso!");
